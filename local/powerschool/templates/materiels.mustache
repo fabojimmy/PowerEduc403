@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="table card mt-2 mb-2">
+        <table class="table">
+
+            <tr>
+                <th>libelle</th>
+                <th>Information sur la sortie du materiel</th>
+                <th>Actions</th>
+            </tr>
+            {{#materiels}}
+            <tr>
+                <td>{{libellemate}}</td>
+                <td>{{description}}</td>
+                <td>
+                        {{! <input type="button" class="btn btn-primary local_annee_delete_button" value="Modifier" onclick="location.href='{{materielsmod}}<!--?id={{id}}'"> }}-->
+                        <a href='{{materielssup}}?id={{id}}' class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                        <a href='{{ajouterachat}}?idac={{id}}' class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                </td>
+            </tr>
+            {{/materiels}}
+        </table>
+    </div>
+</body>
+</html>

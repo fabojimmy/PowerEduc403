@@ -1,0 +1,28 @@
+<div class="table card mt-2 mb-2">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Apprenants</th>
+                <th scope="col">Specialite</th>
+                <th scope="col">Cycle</th>
+                <th scope="col">Moyenne</th>
+              </tr>
+            </thead>
+            {{#etudiant}}
+            <tbody>
+              <tr>
+                
+                    <td>{{firstname}} {{lastname}}</td>
+                    <td>{{libellespecialite}}</td>
+                    <td>{{libellecycle}} </td>
+                    <td>{{moyenne_semestre}} </td>
+                </tr>
+            </tbody>
+            {{/etudiant}}
+            <tfoot>
+                <tr>
+                  <td colspan=5 class="text-align">La moyenne total de la classe/spécialité:{{moyennegene}}</td>
+                </tr>
+            </tfoot>
+          </table>
+</div>

@@ -1,0 +1,126 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_powerschool/index
+
+
+    Example context (json):
+    {
+
+    }
+}}
+<input type="hidden" class="roote" value="{{roote}}">
+ <form action="{{star}}?id=4" method="GET">
+    <div class="d-flex justify-content-around" style="margin-top:35px">
+              <div class="col-2">
+                  <label>Choisir Année</label>
+                  <select class="form-control annee1" name="annee">
+                  <option value=""></option>
+                  {{#anneee}}
+                    <option value="{{id}}">{{datedebut}}-{{datefin}}</option>
+                  {{/anneee}}
+                  </select>
+              </div>
+              <div class="col-2">
+                  <label>Choisir Campus</label>
+                  <select class="form-control campus1" name="campus">
+                  <option value=""></option>
+                  {{#campus1}}
+                  <option value="{{id}}">{{libellecampus}}</option>
+                  {{/campus1}}
+
+                  </select>
+              </div>
+              <div class="col-2">
+                  <label>Choisir Filiere</label>
+                  <select class="form-control filiere1" name="filiere">
+                  <option value=""></option>
+                  {{#filiere1}}
+                    <option value="{{id}}">{{libellefiliere}}</option>
+                  {{/filiere1}}
+                  </select>
+              </div>
+              <div class="col-2">
+                  <label>Choisir Specialite</label>
+                  <select class="form-control specialite1" name="specialite">
+                  <option value=""></option>
+                  {{#specialite1}}
+                  <option value="{{id}}">{{libellespecialite}}</option>
+                  {{/specialite1}}
+                  </select>
+              </div>
+              <div class="col-2">
+                  <label>Choisir Cycle</label>
+                  <select class="form-control cycle1" name="cycle">
+                    <option></option>
+                  {{#cycle1}}
+                  <option value="{{id}}">{{libellecycle}}</option>
+                  {{/cycle1}}
+                  </select>
+              </div>
+      </div> 
+    <!--<div class="d-flex justify-content-around" style="margin-top:35px">
+              <div class="col-2">
+                  <label>Choisir Genre</label>
+                  <select class="form-control" name="gender">
+                  <option value=""></option>
+                    <option value="f">Femme</option>
+                    <option value="h">Homme</option>
+                  </select>
+              </div>
+      </div> -->
+      <input class="form-control col-1 mx-5 my-4 btn-primary" type="submit" name="valider" value="valider" >
+    </form>
+<h1>Liste des Apprenants</h1>
+
+<div class="table card mt-2 mb-2">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Etudiants</th>
+                <th scope="col">Année scolaire</th>
+                <th scope="col">Campus</th>
+                <th scope="col">Specialite</th>
+                <th scope="col">Cycle</th>
+                <th scope="col">Salle</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            {{#inscription}}
+            <tbody>
+              <tr>
+                
+                    <th scope="row"> {{id}} </th>
+                    <td>{{firstname}} {{lastname}}</td>
+                    <td>{{datedebut}} - {{datefin}} </td>
+                    <td>{{villecampus}} - {{libellecampus}}  </td>
+                    <td>{{libellespecialite}}  ({{abreviationspecialite}})  </td>
+                    <td>{{libellecycle}} ({{nombreannee}} ans) </td>
+                    <td>{{numerosalle}}</td>
+                    <td>
+                        <input type="button" class="btn btn-info local_annee_delete_button" value="affecter" action="affectercours" onclick="location.href='{{affectercours}}?id={{id}}&liste=listeet&idca={{idca}}&idsp={{idsp}}&idcy={{idcy}}&idfi={{idfi}}&idan={{idan}}&idsa={{idsa}}&idgro={{idgroupapprenant}}'">
+                    </td>
+                </tr>
+            </tbody>
+            {{/inscription}}
+          </table>
+</div>
+
+    <script src="{{roote}}/local/powerschool/js/jquery.js"></script>
+    <script src="{{roote}}/local/powerschool/js/statitisquefiltrer.js"></script>
+<hr>

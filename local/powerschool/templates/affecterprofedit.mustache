@@ -1,0 +1,81 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_powerschool/index
+
+
+    Example context (json):
+    {
+
+    }
+}}
+<html>
+  <head>
+  </head>
+    <body> 
+       
+        <h1>Enregistrer un affecter de professeur</h1>
+      <form location.href='{{courssemestre}}' method="post">
+        <div class="d-flex justify-content-around">
+          <div class="col-2">
+              <label>Choisir professeur</label>
+              <select class="form-control professeur" name="professeur">
+              {{#professeur}}
+                <option value="{{userid}}">{{firstname}}-{{lastname}}</option>
+              {{/professeur}}
+              </select>
+          </div>
+          <div class="col-2">
+              <label>Choisir Specialite</label>
+              <select class="form-control specialite" name="specialite">
+              {{#specialite}}
+                <option value="{{id}}">{{libellespecialite}}</option>
+              {{/specialite}}
+              </select>
+          </div>
+          <div class="col-2">
+              <label>Choisir Cycle</label>
+              <select class="form-control cycle" name="cycle">
+              </select>
+          </div>
+          <div class="col-2">
+              <label>Choisir cours</label>
+              <select class="form-control cours" name="cours">
+                <option>
+
+                </option>
+              </select>
+          </div>
+          <div class="col-2">
+              <label>Choisir Semestre</label>
+              <select class="form-control semestre" name="semestre">
+              </select>
+          </div>
+          <div class="col-2">
+             <input type="hidden" name="id" value="{{id}}">
+          </div>
+        </div>
+          <div class="ms-4">
+              <button type="submit" class="btn btn-primary btn-lg col-2 text-center mt-3" id="btn-recherche" name="modifier">Modifier</button>
+          </div>
+      </form>
+          <input type="hidden" value="{{root}}" class="roote"/>
+        <hr>
+    <script src="{{wwwroot}}/moodle/local/powerschool/js/jquery.js"></script>
+    <script src="{{wwwroot}}/moodle/local/powerschool/js/affecterprofe.js"></script>
+    </body>
+  </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="table card mt-2 mb-2">
+        <table class="table">
+
+            <tr>
+                <th>Email</th>
+                <th>Subjectif</th>
+                <th>Corps du message</th>
+            </tr>
+            {{#message}}
+            <tr>
+                <td>{{email}}</td>
+                <td>{{subject}}</td>
+                <td>{{fullmessage}}</td>
+            </tr>
+            {{/message}}
+        </table>
+    </div>
+    <button type="" class="btn btn-info" onclick="location.href='{{messagesc}}?idca={{idca}}'">Envoyer message de la scolarité</button>
+</body>
+</html>

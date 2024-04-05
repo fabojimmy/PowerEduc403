@@ -1,0 +1,139 @@
+<html>
+<head>
+        <link rel="stylesheet" href="{{root}}/local/powerschool/css/style.css">
+</head>
+ <div>
+
+    <h3>Importations Generals</h3>
+    <form action="{{importationn}}" enctype="multipart/form-data" method="POST">
+
+         <label for="fichierim" class="choisir-fichier col-3">Importation des inscription</label>
+         <input type="file" class="" name="excel" required id="fichierim">
+            {{! <select>
+                <option></option>
+                <option value="insc">Inscription</option>
+                <option value="user">User</option>
+            </select> }}
+        <button type="submit" class="btn btn-primary" name="import">Import</button>
+    </form>
+    <form action="{{importationpaie}}" enctype="multipart/form-data" method="POST">
+        
+
+        <label for="fichierpai" class="choisir-fichier col-3">Importation des paiements</label>
+        <input type="file" class="" name="excel" required id="fichierpai">
+            {{! <select>
+                <option></option>
+                <option value="insc">Inscription</option>
+                <option value="user">User</option>
+            </select> }}
+        <button type="submit" class="btn btn-primary" name="import">Import</button>
+    </form>
+    <form action="{{filiere}}" enctype="multipart/form-data" method="POST">
+       
+        <label for="fichierfili" class="choisir-fichier col-3">Importation des filiere</label>
+        <input type="file" class="" name="excel" required id="fichierfili">
+            {{! <select>
+                <option></option>
+                <option value="insc">Inscription</option>
+                <option value="user">User</option>
+            </select> }}
+        <button type="submit" class="btn btn-primary" name="import">Import</button>
+    </form>
+    <form action="{{specialite}}" enctype="multipart/form-data" method="POST">
+        <label for="fichierspe" class="choisir-fichier col-3">Importation des specialite</label>
+        <input type="file" class="" name="excel" required id="fichierspe">
+            {{! <select>
+                <option></option>
+                <option value="insc">Inscription</option>
+                <option value="user">User</option>
+            </select> }}
+        <button type="submit" class="btn btn-primary" name="import">Import</button>
+    </form>
+    <form action="{{cycle}}" enctype="multipart/form-data" method="POST">
+
+        <label for="fichiercyc" class="choisir-fichier col-3">Importation des Cycle</label>
+        <input type="file" class="" name="excel" required id="fichiercyc">
+            {{! <select>
+                <option></option>
+                <option value="insc">Inscription</option>
+                <option value="user">User</option>
+            </select> }}
+        <button type="submit" class="btn btn-primary" name="import">Import</button>
+    </form>
+    <form action="{{semestre}}" enctype="multipart/form-data" method="POST">
+
+        <label for="fichierdiff" class="choisir-fichier col-3">Importation des parties de l'année</label>
+        <input type="file" class="" name="excel" required id="fichierdiff">
+            {{! <select>
+                <option></option>
+                <option value="insc">Inscription</option>
+                <option value="user">User</option>
+            </select> }}
+        <button type="submit" class="btn btn-primary " name="import">Import</button>
+    </form>
+   
+    <form action="{{pare}}" enctype="multipart/form-data" method="POST">
+        <label for="fichierpare" class="choisir-fichier col-3">Importation des parents</label>
+        <input type="file" class="" name="excel" required id="fichierpare">
+            {{! <select>
+                <option></option>
+                <option value="insc">Inscription</option>
+                <option value="user">User</option>
+            </select> }}
+        <button type="submit" class="btn btn-primary" name="import">Import</button>
+    </form>
+    <form action="{{prof}}" enctype="multipart/form-data" method="POST">
+        <label for="fichierprof" class="choisir-fichier col-3">Importation des professeurs</label>
+        <input type="file" class="" name="excel" required id="fichierprof">
+            {{! <select>
+                <option></option>
+                <option value="insc">Inscription</option>
+                <option value="user">User</option>
+            </select> }}
+        <button type="submit" class="btn btn-primary" name="import">Import</button>
+    </form>
+
+     <form action="{{cours}}" enctype="multipart/form-data" method="POST">
+        
+
+        <div class="flex">
+            <div>
+               <label class="labelsta">Specialite</label>
+               <select class="form-control col-3" name="idspecialite" >
+                    <option value=""></option>
+                    {{#specialitere}}
+                        <option value="{{id}}">{{libellespecialite}}</option>  
+                    {{/specialitere}}
+               </select>
+            </div>
+            <div>
+               <label class="labelsta">Cycle</label>
+               <select class="form-control col-3" name="idcycle" >
+                    <option value=""></option>
+                    {{#cyclere}}
+                        <option value="{{id}}">{{libellecycle}}</option>  
+                    {{/cyclere}}
+               </select>
+            </div>
+            <div>
+               <label class="labelsta">Semestre</label>
+               <select class="form-control col-3 my-3" name="idsemestre" >
+                    <option value=""></option>
+                    {{#semestrere}}
+                        <option value="{{id}}">{{libellesemestre}}</option>  
+                    {{/semestrere}}
+               </select>
+            </div>
+        </div>
+        <label for="fichiercour" class="choisir-fichier col-3">Importation des cours</label>
+        <input type="file" class="" name="excel" required id="fichiercour">
+            {{! <select>
+                <option></option>
+                <option value="insc">Inscription</option>
+                <option value="user">User</option>
+            </select> }}
+        <button type="submit" class="btn btn-primary" name="import">Import</button>
+    </form>
+    
+ </div>
+</html>

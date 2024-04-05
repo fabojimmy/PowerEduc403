@@ -1,0 +1,132 @@
+.labelsta{
+   
+    font-weight: 600;
+    /* color: red; */
+}
+.choisir-fichier {
+    /* Ajoutez ici les styles que vous souhaitez pour le bouton */
+    /* Par exemple : */
+    background-color: #4CAF50; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    padding: 10px 20px; /* Espacement intérieur */
+    border: none; /* Supprimez la bordure */
+    border-radius: 5px; /* Bordures arrondies */
+    cursor: pointer; /* Curseur de la souris en forme de main */
+  }
+  
+  /* Masquez le champ de téléchargement de fichier par défaut */
+  input[type="file"] {
+    display: none;
+  }
+
+
+
+/* .ress{
+  margin-top: 1000px;
+} */
+
+
+@media print{
+    form{
+      display:none;
+
+    }
+    .cl,.btn{
+      display:none;
+
+    }
+}
+
+@media screen and ( max-width:600px) {
+  body{
+    /* background: red; */
+  }
+
+  form.frstatisque{
+    /* background: blue;     */
+    /* margin-top: 220px; */
+    
+  }
+  .affecg,.ress{
+    
+    margin-top: 220px;
+  }
+   .statiscontent{
+    
+    /* background: blue;     */
+    display: flex;
+    flex-direction: column;
+  }
+  .statiscontent select{
+
+    width: 200px;
+  }
+
+  .gen{
+
+    margin-top: -20px;
+  }
+  .gen select{
+
+    width: 200px;
+    margin-left: -209px;
+  }
+  .gen label{
+    margin-left: -209px;
+    
+  }
+  /* .btn-re{
+    
+    width: 1000px;
+  } */
+
+  .salle{
+    width: 200px;
+
+  }
+
+}
+@media screen and ( max-width:400px) {
+  body{
+    /* background: red; */
+  }
+   
+  .affecg,.ress{
+    
+    margin-top: 220px;
+  }
+  form.frstatisque{
+    /* background: blue;     */
+    margin-top: 250px;
+    
+  }
+ .statiscontent{
+    
+    /* background: red;     */
+    display: flex;
+    flex-direction: column;
+  }
+   .statiscontent select{
+
+    width: 200px;
+  }
+  .gen{
+    margin: 0;
+  } 
+  .du{
+    /* background: blue; */
+  }
+  .gen select{
+
+    width: 300px;
+  }
+  /* .btn-re{
+    
+    width: 1000px;
+  } */
+  
+   .salle{
+    width: 200px;
+
+  }
+}

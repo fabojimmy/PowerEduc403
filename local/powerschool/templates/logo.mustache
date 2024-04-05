@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{root}}/local/powerschool/css/style.css">
+
+    <title>Document</title>
+    <style>
+   .choisir-fichier {
+  /* Ajoutez ici les styles que vous souhaitez pour le bouton */
+  /* Par exemple : */
+  background-color: #4CAF50; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  padding: 10px 20px; /* Espacement intérieur */
+  border: none; /* Supprimez la bordure */
+  border-radius: 5px; /* Bordures arrondies */
+  cursor: pointer; /* Curseur de la souris en forme de main */
+}
+
+/* Masquez le champ de téléchargement de fichier par défaut */
+input[type="file"] {
+  display: none;
+}
+    </style>
+</head>
+<body>
+    
+<form method="post" action="{{logo}}" enctype="multipart/form-data" class="mx-5">
+  <!-- Ajoutez un label personnalisé pour le bouton "choisir un fichier" -->
+  <select class="form-control col-2 mt-6 mb-2" name="campus">
+  <option></option>
+  {{#campus}}
+  <option value="{{id}}">{{libellecampus}}</option>
+  {{/campus}}
+  </select>
+  <label for="fichier" class="choisir-fichier">Choisir votre logo</label>
+
+  <!-- Ajoutez un input de type "file" masqué pour la sélection de fichier -->
+  <input type="file" name="fichier" id="fichier" /><br>
+  
+  <!-- Ajoutez un bouton pour soumettre le formulaire -->
+  <button type="submit" name="submit" class="btn btn-info">Envoyer</button>
+</form>
+</body>
+</html>

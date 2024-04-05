@@ -1,0 +1,42 @@
+
+<style>
+  input[type="radio"]{
+   margin:15px;
+
+  }
+  span{
+   font-weight:bold;
+  }
+  label{
+    font-weight:bold;
+    margin:15px auto;
+  }
+ /*  form div{
+   background-color:red;
+   margin-bottom:30px;
+  }*/
+
+  form{
+     margin-top:-90px;
+  }
+</style>
+<form method="post" action="{{payementeta}}">
+    <span>Vous voulez effectuer le payement de vous établissement</span>
+    <span class="" id="">Choississez Votre tarif </span>
+    <div>
+       <input type="radio" name="mois" value="3,2"/><span>3 Mois pour 6000fr<span>
+    </div>
+    <div>
+       <input type="radio" name="mois" value="6,2500"/><span>6 Mois pour 2500fr<span>
+    </div>
+    <div>
+       <input type="radio" name="mois" value="9,3500"/><span>9 Mois pour 3500fr<span>
+    </div>
+    <div>
+       <input type="radio" name="mois" value="12,4500"/><span>12 Mois pour 4500fr<span>
+    </div>
+
+    <label for="mt-3">Entrer le numero</label>
+   <input type="number" name="payement" class="form-control col-2 mt-2">
+   <input type="submit" name="effect" value="Effectuer Payement" class="form-control col-2 mt-2">
+</form>

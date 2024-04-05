@@ -1,0 +1,11 @@
+
+
+  <div class="col-2">
+         <label>Choisir l'etablissement</label>
+            <select name="campus" onchange="if (this.value) location.href=this.value;" class="form-control ">
+            <option value=""></option>
+            {{#campus}}
+            <option value="{{confpaie}}?idca={{id}}">{{libellecampus}}</option>
+            {{/campus}}
+            </select>
+ </div>

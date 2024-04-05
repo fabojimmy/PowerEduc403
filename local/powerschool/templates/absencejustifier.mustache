@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <!--<div class="secondary-navigation d-print-none mt-5">
+    <nav class="moremenu navigation observed">
+        <ul id="moremenu-643fd15bea2a0-nav-tabs" role="menubar" class="nav more-nav nav-tabs">
+                        <li data-key="siteadminnode" class="nav-item" role="none" data-forceintomoremenu="false">
+                                    <a role="menuitem" class="nav-link" href='{{salleele}}' tabindex="0" aria-current="true">
+                                       Affecter les Etudiant à une salle
+                                    </a>
+                        </li>
+                        <li data-key="siteadminnode" class="nav-item" role="none" data-forceintomoremenu="false">
+                                    <a role="menuitem" class="nav-link" href='{{salleeleretirer}}' tabindex="0" aria-current="true">
+                                       Retirer les Etudiant à une salle
+                                    </a>
+                        </li>
+        </ul>
+    </nav>
+</div>-->
+         <label>Choisir l'etablissement</label>
+        <div class="col-2">
+            <select name="campus"onchange="if (this.value) location.href=this.value;" class="form-control">
+            <option value=""></option>
+            {{#campus}}
+            <option value="{{salleeleretirer}}?idca={{id}}">{{libellecampus}}</option>
+            {{/campus}}
+            </select>
+          </div>
+    <form method="POST" action="{{absence}}">
+    <input type="hidden" class="campus" name="campus" value="{{idca}}">
+       <div class="d-flex justify-content-around mt-5">
+                <div class="col-1">
+                    <label> Année</label>
+                    <select class="form-control" name="anneee">
+                        <option value=""></option>
+                    {{#annee}}
+                        <option value="{{id}}">{{datedebut}}-{{datefin}}</option>
+                    {{/annee}}
+                    </select>
+                </div>
+                <div class="col-2">
+                    <label>Choisir filiere</label>
+                    <select class="form-control filiere" name="filiere">
+                        <option value=""></option>
+                    {{#filiere}}
+                        <option value="{{id}}">{{libellefiliere}}</option>
+                    {{/filiere}}
+                    </select>
+                </div>
+                <div class="col-2">
+                    <label>Choisir Specialite</label>
+                    <select class="form-control specialite" name="specialite">
+                        <option value=""> </option>
+                    
+                    </select>
+                </div>
+                        <!--<option value="{{id}}">{{libellespecialite}}</option>-->
+                <div class="col-2">
+                    <label>Choisir Cycle</label>
+                    <select class="form-control cycle" name="cycle">
+                        <option value=""> </option>
+                    </select>
+                </div>
+
+                <div class="col-2">
+                    <label>Choisir Salle</label>
+                    <select class="form-control salle1" name="salle">
+                        <option value="">select </option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <label>Choisir cours</label>
+                    <select class="form-control cours" name="cours">
+                        <option value="">select </option>
+                        {{#cours}}
+                        <option value="{{id}}">{{fullname}}</option>
+                        {{/cours}}
+                    </select>
+                </div>
+                <div class="col-1">
+                    <label> Heure </label>
+                    <select class="form-control heure" name="heure">
+                        <option value="">select </option>
+                    
+                    </select>
+                </div>
+             
+        </div>
+        <div class="">
+            <table class="table table-striped table-hover">
+                   <input type="checkbox" id="checkboxMaster" class="toutsel"/>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="sall">
+                    
+                </tbody>
+            </table>
+        </div>
+         <div>
+           <button class="btn btn-primary">Valider</button>
+         </div>
+    </form>
+            <input type="hidden" value="{{root}}" class="roote"/>
+        
+        
+
+            
+    <script src="{{root}}/local/powerschool/js/jquery.js"></script>
+    <script src="{{root}}/local/powerschool/js/absencejustifier.js"></script>
+</body>
+</html>

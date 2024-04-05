@@ -1,0 +1,24 @@
+
+
+
+<div class="col-2">
+              <label>Choisir Semestre</label>
+              <select class="form-control specialite" name="specialite" onchange="if (this.value) location.href=this.value;">
+              <option></option>
+              {{#semestre}}
+                <option value="{{courssemestre}}?idsem={{id}}">{{libellesemestre}}</option>
+              {{/semestre}}
+              </select>
+</div>
+ <div class="col-2">
+              <label>Choisir Apprenant</label>
+              <select class="form-control specialite" name="specialite" onchange="if (this.value) location.href=this.value;">
+              <option></option>
+              {{#enfant}}
+                <option value="{{enfantabse}}?idsem={{idsem}}&idenf={{id}}">{{firstname}}-{{lastname}}</option>
+              {{/enfant}}
+              </select>
+    </div>
+<div class="mx-3">
+{{{programme}}}
+</div>

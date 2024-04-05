@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+            <input type="hidden" value="{{root}}" class="roote"/>
+        <div class="col-2">
+              <label>Choisir Semestre</label>
+              <select class="form-control specialite" name="specialite" onchange="if (this.value) location.href=this.value;">
+              <option></option>
+              {{#semestre}}
+                <option value="{{bulletinnote}}?idsem={{id}}">{{libellesemestre}}</option>
+              {{/semestre}}
+              </select>
+        </div>
+         <div class="col-2">
+              <label>Choisir Apprenant</label>
+              <select class="form-control specialite" name="specialite" onchange="if (this.value) location.href=this.value;">
+              <option></option>
+              {{#enfant}}
+                <option value="{{enfantabse}}?idsem={{idsem}}&idenf={{id}}">{{firstname}}-{{lastname}}</option>
+              {{/enfant}}
+              </select>
+          </div>
+        <div class="mt-5">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>libelle</th>
+                        <th>Controle Continue</th>
+                        <th>Normal/Note</th>
+                    </tr>
+                </thead>
+                <tbody class="bull">
+                        {{#notes}}
+                           <tr>
+                              <td>{{fullname}}</td>
+                              <td>{{note2}}</td>
+                              <td>{{note3}}</td>
+                           </tr>
+                        {{/notes}}
+                </tbody>
+            </table>
+
+        </div>
+    <script src="{{root}}/local/powerschool/js/jquery.js"></script>
+    <script src="{{root}}/local/powerschool/js/bulletins.js"></script>
+</body>
+</html>

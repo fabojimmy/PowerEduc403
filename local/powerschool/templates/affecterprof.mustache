@@ -1,0 +1,141 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_powerschool/index
+
+
+    Example context (json):
+    {
+
+    }
+}}
+<html>
+  <head>
+        <link rel="stylesheet" href="{{root}}/local/powerschool/css/styles.css">
+        
+  </head>
+  
+    <body> 
+       
+        <h1 class="mx-4 affecg">{{affec}}</h1>
+      <form location.href='{{courssemestre}}' class="mt-5 frstatisque " method="post">
+        <div class="d-flex justify-content-around statiscontent ">
+          <div class="col-2 ">
+              <label class="labelsta"> Professeur</label>
+              <select class="form-control professeur" name="professeur">
+              {{#professeur}}
+                <option value="{{userid}}">{{firstname}}-{{lastname}}</option>
+              {{/professeur}}
+              </select>
+          </div>
+          <div class="col-2 ">
+              <label class="labelsta"> Specialite</label>
+              <select class="form-control specialite" name="specialite">
+              {{#specialite}}
+                <option value="{{id}}">{{libellespecialite}}</option>
+              {{/specialite}}
+              </select>
+          </div>
+         
+          <div class="col-2 ">
+              <label class="labelsta"> Cycle</label>
+              <select class="form-control cycle" name="cycle">
+              </select>
+          </div>
+          <div class="col-2 ">
+              <label class="labelsta"> Année</label>
+              <select class="form-control annee" name="annee">
+              </select>
+          </div>
+           
+          <div class="col-2 ">
+              <label class="labelsta"> Cours</label>
+              <select class="form-control cours" name="cours">
+                <option>
+
+                </option>
+              </select>
+          </div>
+          
+          <div class="col-2 ">
+              <label class="labelsta"> Semestre</label>
+              <select class="form-control semestre" name="semestre">
+              </select>
+          </div>
+        </div>
+        <div class="d-flex justify-content-around statiscontent my-5">
+            {{{sallegro}}}
+            <div class="col-2 ">
+                <label class="labelsta"> Heure Professionel</label>
+                <input type="number" class="form-control" name="heurecours">
+            </div>
+            <div class="col-2 ">
+                <label class="labelsta">Prix unitaire</label>
+                <input type="text" class="form-control" name="prixheur">
+            </div>
+          
+        </div>
+     
+        <input type="hidden" value="{{idca}}" name="idcampus">
+          <div class="ms-4 btn-re">
+              <button class="btn btn-primary col-1 text-center mx-3 my-3 " id="btn-recherche">Enregistrer</button>
+          </div>
+      </form>
+       <!--<div class="d-flex flex-wrap align-items-center mt-5">
+          <div class="form-group fitem">  
+          <input type="button" class="btn btn-info align-items-center" value="suivant" onclick="location.href='{{courssemestre}}'"> 
+          </div>
+        </div>-->
+        <div class="table card mt-2 mb-2">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Professeurs</th>
+                        <th scope="col">Cours & Specialite</th>
+                        <th scope="col">Salle</th>
+                        <th scope="col">Groupe</th>
+                        <th scope="col">Heure Cours</th>
+                        <th scope="col">Prix par heure</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
+                    {{#affecterprof}}
+                    <tbody>
+                      <tr>
+                        
+                            <td>{{lastname}}-{{firstname}} </td>
+                            <td>{{fullname}}-{{libellecycle}}-{{libellespecialite}}-{{libellesemestre}} </td>
+                            <td>{{numerosalle}} </td>
+                            <td>{{libellegroup}} </td>
+                            <td>{{heurecours}} </td>
+                            <td>{{prixheur}} </td>
+                            <td>
+                               <!-- <input type="button" class="btn btn-primary" value="modifier" onclick="location.href='{{affecterprofedit}}?id={{idaffe}}&idca={{idca}}'">-->
+                                <input type="button" class="btn btn-danger local_annee_delete_button" value="supprimer" onclick="location.href='{{affecterprofsupp}}?id={{idaffe}}&idca={{idca}}&idcou={{idcouu}}&iduser={{iduser}}'">
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                    {{/affecterprof}}
+                  </table>
+        </div>
+          <input type="hidden" value="{{root}}" class="roote"/>
+        <hr>
+    <script src="{{root}}/local/powerschool/js/jquery.js"></script>
+    <script src="{{root}}/local/powerschool/js/affecterprof.js"></script>
+    </body>
+  </html>

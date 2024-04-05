@@ -1,0 +1,73 @@
+    <div class="d-flex justify-content-around statiscontent" style="margin-top:55px">
+              <div class="col-2">
+                  <label class="labelsta"> Filiere</label>
+                  <select class="form-control filiere1" onchange="if (this.value) location.href=this.value;" name="idfi">
+                  <option value=""></option>
+                  {{#filiere}}
+                    <option value="{{confpaie}}?idfi={{id}}">{{libellefiliere}}</option>
+                  {{/filiere}}
+                  </select>
+              </div>
+              <div class="col-2">
+                  <label class="labelsta"> Specialite/Classe</label>
+                  <select class="form-control specialite1" onchange="if (this.value) location.href=this.value;" name="idsp">
+                  <option value=""></option>
+                  {{#specialite}}
+                  <option value="{{confpaie}}?idsp={{id}}&&idfi={{idfi}}">{{libellespecialite}}</option>
+                  {{/specialite}}
+                  </select>
+              </div>
+              <div class="col-2">
+                  <label class="labelsta"> Cycle</label>
+                  <select class="form-control cycle1" onchange="if (this.value) location.href=this.value;" name="idcy">
+                    <option></option>
+                  {{#cycle}}
+                  <option value="{{confpaie}}?idcy={{id}}&&idsp={{idsp}}&&idfi={{idfi}}">{{libellecycle}}</option>
+                  {{/cycle}}
+                  </select>
+              </div>
+              <div class="col-2">
+                  <label class="labelsta"> Cours</label>
+                  <select class="form-control cours1" onchange="if (this.value) location.href=this.value;" name="idcou">
+                    <option></option>
+                  {{#cours}}
+                  <option value="{{confpaie}}?idcou={{id}}&&idsp={{idsp}}&&idfi={{idfi}}&&idcy={{id}}">{{fullname}}</option>
+                  {{/cours}}
+                  </select>
+              </div>
+              <div class="col-2">
+                  <label class="labelsta"> Enseignant</label>
+                  <select class="form-control prof" onchange="if (this.value) location.href=this.value;" name="idpro">
+                    <option></option>
+                  {{#professeur}}
+                  <option value="{{confpaie}}?idcou={{idcou}}&&idsp={{idsp}}&&idfi={{idfi}}&&idpro={{id}}&&idcy={{id}}">{{firstname}}-{{{lastname}}}</option>
+                  {{/professeur}}
+                  </select>
+              </div>
+            
+      </div> 
+    
+    <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">rapport</th>
+                <th scope="col">date rapport</th>
+                <th scope="col">action</th>
+              </tr>
+            </thead>
+            {{#rappor}}
+            <tbody>
+              <tr>
+                    <th scope="row">{{id}} </th>
+                    <td>rapport</td>
+                    <td>{{timecreated}}</td>
+                    <td>
+                        <a  class="form-control btn btn-info col-3" onclick="location.href='{{afficher}}?idprof={{idpro}}&&idcours={{idcours}}&&idrap={{id}}'">Afficher</a>
+                        <a  class="form-control btn btn-success col-3" onclick="location.href='{{confpaie}}?idrap={{id}}&&action=edit&&idcou={{idcou}}&&idsp={{idsp}}&&idfi={{idfi}}&&idpro={{idpro}}&&idcy={{idcy}}'">Valider</a>
+                    </td>
+                </tr>
+            </tbody>
+            
+            {{/rappor}}
+          </table>

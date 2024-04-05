@@ -1,0 +1,65 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_powerschool/index
+
+
+    Example context (json):
+    {
+
+    }
+}}
+
+<div class="d-flex flex-wrap align-items-center">
+  <div class="form-group fitem">
+
+    
+  <!--<input type="button" class="btn btn-info align-items-center" value="suivant" onclick="location.href='{{filiere}}'"> -->
+  </div>
+
+</div>
+
+<h1>Liste des sous cantines</h1>
+
+<div class="table card mt-2 mb-2">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Libelle sous cantine</th>
+                <th scope="col">Libelle cantine</th>
+              </tr>
+            </thead>
+            {{#souscantine}}
+            <tbody>
+              <tr>
+                
+                    <th scope="row">{{id}} </th>
+                    <td>{{libellesouscantine}} </td>
+                    <td>{{libellecantine}} </td>
+                    <td>
+                        <input type="button" class="btn btn-primary" value="modifier" onclick="location.href='{{souscantineedit}}?id={{id}}&action=edit'">
+                        <input type="button" class="btn btn-danger local_annee_delete_button" value="supprimer" onclick="location.href='{{souscantinesupp}}?id={{id}}&action=delete'">
+                    </td>
+                </tr>
+            </tbody>
+            
+            {{/souscantine}}
+          </table>
+</div>
+
+<hr>

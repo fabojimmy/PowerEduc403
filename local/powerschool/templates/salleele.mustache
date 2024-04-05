@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="secondary-navigation d-print-none">
+    <nav class="moremenu navigation observed">
+        <ul id="moremenu-643fd15bea2a0-nav-tabs" role="menubar" class="nav more-nav nav-tabs">
+                        <li data-key="siteadminnode" class="nav-item" role="none" data-forceintomoremenu="false">
+                                    <a role="menuitem" class="nav-link" href='{{salleele}}' tabindex="0" aria-current="true">
+                                       Affecter les Apprenants à une salle
+                                    </a>
+                        </li>
+                        <li data-key="siteadminnode" class="nav-item" role="none" data-forceintomoremenu="false">
+                                    <a role="menuitem" class="nav-link" href='{{salleeleretirer}}' tabindex="0" aria-current="true">
+                                       Retirer les Apprenants à une salle
+                                    </a>
+                        </li>
+        </ul>
+    </nav>
+</div>
+
+        <h1 class="mx-5">{{title}}</h1>
+       <div class="d-flex justify-content-around mt-5">
+          <div class="col-2">
+                  <label>Choisir Année</label>
+                  <select class="form-control annee" name="annee">
+                  <option value=""></option>
+                  {{#anneee}}
+                    <option value="{{id}}">{{datedebut}}-{{datefin}}</option>
+                  {{/anneee}}
+                  </select>
+          </div>
+          
+          <div class="col-2">
+              <label>Choisir Salle</label>
+              <select class="form-control salle" name="salle">
+                <option value=""></option>
+              {{#salle}}
+                <option value="{{id}}">{{numerosalle}}</option>
+              {{/salle}}
+              </select>
+          </div>
+          <div class="col-2">
+              <label>Choisir filiere</label>
+              <select class="form-control filiere" name="filiere">
+                <option value=""></option>
+              {{#filiere}}
+                <option value="{{id}}">{{libellefiliere}}</option>
+              {{/filiere}}
+              </select>
+          </div>
+          <div class="col-2">
+              <label>Choisir Specialite</label>
+              <select class="form-control specialite" name="specialite">
+             
+              </select>
+          </div>
+                <!--<option value="{{id}}">{{libellespecialite}}</option>-->
+          <div class="col-2">
+              <label>Choisir Cycle</label>
+              <select class="form-control cycle" name="cycle">
+              </select>
+          </div>
+        </div>
+            <input type="hidden" value="{{root}}" class="roote"/>
+        
+        <div class="mx-auto">
+            <table class="table card table-hover">
+                   <input type="checkbox" id="checkboxMaster" class="toutsel"/>
+                <thead>
+                    <tr>
+                        <th scope="col">.</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                    </tr>
+                </thead>
+                <tbody class="sall">
+                    
+                </tbody>
+            </table>
+        </div>
+
+            <div>
+                <button class="validertrans btn btn-primary">Affecter</button>
+            </div>
+
+ <div class="mt-5 mx-auto">
+     <fieldset>
+          <legend class="mx-auto" style="margin-left:60px"> Les salles occupées</legend>
+            <div class="table card mt-2 mb-2">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Salle-Capacite</th>
+                        <th scope="col">Specialite</th>
+                        <th scope="col">Cycle</th>
+                    </tr>
+                    </thead>
+                    {{#salleocc}}
+                    <tbody>
+                    <tr>
+                        
+                            <td>{{salles_occupees}} </td>
+                            <td> {{libellespecialite}} </td>
+                            <td> {{libellecycle}} </td>
+                        </tr>
+                    </tbody>
+                    
+                    {{/salleocc}}
+                </table>
+         </div>
+     </fieldset>
+     <!--<fieldset>
+          <legend> Les salles non occupées</legend>
+            <div class="table card mt-2 mb-2">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Numero salle</th>
+                        <th scope="col">capacite salle</th>
+                    </tr>
+                    </thead>
+                    {{#salle}}
+                    <tbody>
+                    <tr>
+                        
+                            <th scope="row">{{id}} </th>
+                            <td>{{numerosalle}} </td>
+                            <td>{{capacitesalle}} </td>
+                        </tr>
+                    </tbody>
+                    
+                    {{/salle}}
+                </table>
+         </div>
+     </fieldset>-->
+</div>
+    <script src="{{root}}/local/powerschool/js/jquery.js"></script>
+    <script src="{{root}}/local/powerschool/js/bulletinss.js"></script>
+    <script src="{{root}}/local/powerschool/js/salleeteee.js"></script>
+</body>
+</html>

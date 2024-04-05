@@ -1,0 +1,77 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_powerschool/index
+
+
+    Example context (json):
+    {
+
+    }
+}}
+
+<!--<div class="d-flex flex-wrap align-items-center">
+  <div class="form-group fitem">
+
+    
+  <input type="button" class="btn btn-info align-items-center" value="suivant" onclick="location.href='{{salle}}'"> 
+  </div>
+
+</div>-->
+<h1>Liste des Campus</h1>
+
+<div class="table card mt-2 mb-2">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Nom Campus</th>
+                <th scope="col">abreviation Campus</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Libelle Type</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telephone</th>
+                <th scope="col">Site Internet</th>
+                <th scope="col">Pays & Ville</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            {{#campus}}
+            <tbody>
+              <tr>
+                
+                    <th scope="row">{{camid}} </th>
+                    <td>{{libellecampus}} </td>
+                    <td>{{abrecampus}} </td>
+                    <td>{{adressecampus}}</td>
+                    <td>{{libelletype}}</td>
+                    <td>{{emailcampus}}</td>
+                    <td>{{telcampus}}</td>
+                    <td>{{sitecampus}}</td>
+                    <td>{{payscampus}} - {{villecampus}} </td>
+                    <td>
+                        <input type="button" class="btn btn-primary" value="modifier" onclick="location.href='{{campusedit}}?id={{camid}}'">
+                        <input type="button" class="btn btn-danger local_annee_delete_button" value="supprimer" onclick="location.href='{{campussupp}}?id={{camid}}'">
+                    </td>
+                </tr>
+            </tbody>
+            
+            {{/campus}}
+          </table>
+</div>
+
+<hr>

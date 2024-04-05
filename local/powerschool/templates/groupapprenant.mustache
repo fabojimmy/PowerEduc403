@@ -1,0 +1,68 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_powerschool/index
+
+
+    Example context (json):
+    {
+
+    }
+}}
+
+<div class="d-flex flex-wrap align-items-center">
+  <div class="form-group fitem">
+
+    
+  <!--<input type="button" class="btn btn-info align-items-center" value="suivant" onclick="location.href='{{filiere}}'"> -->
+  </div>
+
+</div>
+
+<h1>Liste des salles</h1>
+
+<div class="table card mt-2 mb-2">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">{{libelle}}</th>
+                <th scope="col">{{capacitegroupe}}</th>
+                <th scope="col">{{specialie}}</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            {{#salle}}
+            <tbody>
+              <tr>
+                
+                    <th scope="row">{{id}} </th>
+                    <td>{{numerogroup}} </td>
+                    <td>{{capacitegroup}} </td>
+                    <td> {{libellespecialite}} - {{libellecycle}} </td>
+                    <td>
+                        <input type="button" class="btn btn-primary" value="modifier" onclick="location.href='{{salleedit}}?id={{id}}&action=edit'">
+                        <input type="button" class="btn btn-danger local_annee_delete_button" value="supprimer" onclick="location.href='{{sallesupp}}?id={{id}}&action=delete'">
+                    </td>
+                </tr>
+            </tbody>
+            
+            {{/salle}}
+          </table>
+</div>
+
+<hr>

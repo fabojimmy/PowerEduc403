@@ -1,0 +1,39 @@
+<html>
+  <head>
+   </head>
+   <body>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">rapport</th>
+                <th scope="col">date rapport</th>
+                <th scope="col">Completer votre rapport</th>
+                <th scope="col">Status complementaire</th>
+                <th scope="col">Status</th>
+                <th scope="col">Afiicher</th>
+              </tr>
+            </thead>
+            {{#rappor}}
+            <tbody>
+              <tr>
+                    <th scope="row">{{id}} </th>
+                    <td>rapport</td>
+                    <td>{{timecreated}}</td>
+                    <td><input type="button"  class="btn btn-primary" value="modifier" onclick="location.href='{{modifrap}}?idra={{id}}&&action=edit&&idcour={{idcour}}'" {{{disabled}}}></td>
+                    <td>{{{status}}}</td>
+                    <td>{{{activer}}}</td>
+                    <td><a  class="form-control btn btn-info col-3" onclick="location.href='{{afficher}}?idprof={{idpro}}&&idcours={{idcours}}&&idrap={{id}}'">Afficher</a></td>
+                </tr>
+            </tbody>
+            
+            {{/rappor}}
+          </table>
+   </body>
+
+   <style>
+     td a{
+        width: 100%;
+     }
+   </style>
+</html>

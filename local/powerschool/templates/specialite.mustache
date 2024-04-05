@@ -1,0 +1,140 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_powerschool/index
+
+
+    Example context (json):
+    {
+
+    }
+}}
+<html>
+ <head>
+ </head>
+ {{#vertyp}}
+      <h1>Quelles sont les specialites que vous aviez?</h1>
+
+      <table class="table">
+
+            
+              <tbody>
+                {{{table1}}}
+              </tbody>
+              
+    </table>
+        <table class="table">
+                  <tbody>
+                    {{{table2}}}
+                  </tbody> 
+        </table>
+  <div class="d-flex justify-content-aroun">
+    <div class="col-6 mt-5">
+      <label>Choisir la filiere</label>
+      <select name="filiere" class="form-control col-3 filiere">
+      <option value=""></option>
+      {{#filiere}}
+      <option value="{{id}}">{{libellefiliere}}</option>
+      {{/filiere}}
+      </select>
+      <button class="btn btn-primary ajou  mt-5">ajouter</button>
+    </div>
+  </div>  
+    <div class="col-6 mt-5">
+      <label>La categorie choisie {{specialitec}}</label>
+      <select name="specialitecat" onchange="if (this.value) location.href=this.value;" class="form-control col-3 filiere">
+      <option value="">Choisir la categorie</option>
+      {{#specialitecat}}
+      <option value="{{specialitecate}}?idca={{idca}}&specialite={{libellespecialite}}&idsp={{idsp}}&idfi={{idfi}}">{{libellespecialite}}</option>
+      {{/specialitecat}}
+      </select>
+      <form method="POST" action={{catspecialite}}?parent={{category}}&specialite={{specialiteca}}&idca={{idca}}>
+          <input type="hidden" value="{{idca}}" name="campus"/>
+          <input type="hidden" value="{{specialiteca}}" name="filieree"/>
+          <input type="submit" class="btn btn-primary  mt-5" value="Ajouter categorie" class="cat"/>
+      </form>
+    </div>
+  {{/vertyp}}
+      <input type="hidden" value="{{root}}" class="roote"/>
+      <input type="hidden" value="{{idca}}" class="campus"/>
+  {{! <table class="table">
+            <tbody>
+               <tr>
+                    <td><input type="checkbox" value="1er">1er</td>
+                    <td><input type="checkbox" value="5">5</td>
+                    <td><input type="checkbox" value="4 All">4 All</td>
+                    <td><input type="checkbox" value="4 ESP">4 ESP</td>
+                    <td><input type="checkbox" value="3 All">3 All</td>
+                    <td><input type="checkbox" value="2nd A4ESP">2nd A4ESP</td>
+                    <td><input type="checkbox" value="2nd A4All">2nd A4All</td>
+                    <td><input type="checkbox" value="2nd C">2nd C</td>
+                    <td><input type="checkbox" value="1 C">1 C</td>
+                    <td><input type="checkbox" value="1 D">1 D</td>
+                    <td><input type="checkbox" value="1er A4ESP">1er A4ESP</td>
+                    <td><input type="checkbox" value="1er A4All">1er A4All</td>
+                    <td><input type="checkbox" value="T C">T C</td>
+                    <td><input type="checkbox" value="T D">T D</td>
+                    <td><input type="checkbox" value="Ter A4ESP">Ter A4ESP</td>
+                    <td><input type="checkbox" value="Ter A4All">Ter A4All</td>
+                </tr>
+            </tbody> 
+  </table> }}
+<!--<div class="d-flex flex-wrap align-items-center">
+    <div class="form-group fitem">
+  
+      
+    <input type="button" class="btn btn-info align-items-center" value="suivant" onclick="location.href='{{cycle}}'"> 
+    </div>
+  
+</div>-->
+<h1>Liste des specialites</h1>
+
+<div class="table card mt-2 mb-2">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Specialite</th>
+                <th scope="col">Abréviation</th>
+                <th scope="col">Filiere</th>
+                <th scope="col">Nombre d'options</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            {{#specialite}}
+            <tbody>
+              <tr>
+                
+                    <th scope="row">{{id}} </th>
+                    <td>{{libellespecialite}} </td>
+                    <td>{{abreviationspecialite}} </td>
+                    <td>{{libellefiliere}} ({{abreviationfiliere}})  </td>
+                    <td>{{nombreoption}}</td>
+                    <td>
+                        <input type="button" class="btn btn-primary" value="modifier" onclick="location.href='{{specialiteedit}}?id={{id}}&idca={{idca}}&action=edit'">
+                        <input type="button" class="btn btn-danger local_annee_delete_button" value="supprimer" onclick="location.href='{{specialitesupp}}?id={{id}}&idca={{idca}}&action=delete'">
+                    </td>
+                </tr>
+            </tbody>
+            
+            {{/specialite}}
+          </table>
+</div>
+    <script src="{{wwwroot}}/moodle1/local/powerschool/js/jquery.js"></script>
+    <script src="{{wwwroot}}/moodle1/local/powerschool/js/specialite.js"></script>
+  </body>
+</html>

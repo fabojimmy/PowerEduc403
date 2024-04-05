@@ -1,0 +1,10 @@
+   
+<div class="d-flex justify-content-evenly">
+   <select class="form-control campus col-4 mx-5" name="campus" onchange="if (this.value) location.href=this.value;">
+              <option>Selectionner un Etablissement</option>
+              {{#campus}}
+                <option value="{{campuslien}}?idca={{id}}&libel=campus">{{libellecampus}}</option>
+              {{/campus}}
+    </select>
+
+<div>

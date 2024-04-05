@@ -1,0 +1,91 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_powerschool/index
+
+
+    Example context (json):
+    {
+
+    }
+}}
+<!--<div class="d-flex flex-wrap align-items-center">
+    <div class="form-group fitem">
+  
+      
+    <input type="button" class="btn btn-info align-items-center" value="suivant" onclick="location.href='{{specialite}}'"> 
+    </div>
+  
+</div>-->
+{{#vertyp}}
+  <h1 class="qu">Quelles sont les Filieres que vous aviez?</h1>
+        <table class="ta">
+            <tbody>
+              {{{table}}}
+            </tbody>
+        </table>
+      <div class="col-6">
+        <input type="hidden" value="{{root}}" class="roote"/>
+        <input type="hidden" value="{{idca}}" class="idca"/>
+        <button class="btn btn-primary ajou mt-5">ajouter</button>
+      </div>
+      <div class="col-6">
+          <label>{{categorychoi}}</label>
+          <select name="categorie" class="form-control col-3 se"  onchange="if (this.value) location.href=this.value;">
+          <option value="">Select La Categorie</option>
+          {{#filierecat}}
+          <option value="{{cattfiliere}}?idca={{idca}}&filiere={{libellefiliere}}">{{libellefiliere}}</option>
+          {{/filierecat}}
+          </select>
+        <form method="POST" action={{catfiliere}}?parent={{category}}&filiere={{filiereca}}&idca={{idca}}>
+            <input type="hidden" value="{{idca}}" name="campus"/>
+            <input type="hidden" value="{{filiereca}}" name="filieree"/>
+            <input type="submit" class="btn btn-primary mt-5" value="Ajouter categorie" class="cat"/>
+        </form>
+      </div>
+  {{/vertyp}}
+<div class="table card mt-2 mb-2">
+<h1 class="text-center">Liste des filieres</h1>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">filiere</th>
+                <th scope="col">abréviation</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            {{#filiere}}
+            <tbody>
+              <tr>
+                
+                    <th scope="row">{{id}} </th>
+                    <td>{{libellefiliere}} </td>
+                    <td>{{abreviationfiliere}} </td>
+                    <td>
+                        <input type="button" class="btn btn-primary" value="modifier" onclick="location.href='{{filiereedit}}?id={{id}}&libelle={{libellefiliere}}&action=edit'">
+                        <input type="button" class="btn btn-danger local_annee_delete_button" value="supprimer" onclick="location.href='{{filieresupp}}?id={{id}}&idca={{idcampus}}&libelle={{libellefiliere}}&action=delete'">
+                    </td>
+                </tr>
+            </tbody>
+            
+            {{/filiere}}
+          </table>
+</div>
+   <script src="{{wwwroot}}/moodle1/local/powerschool/js/jquery.js"></script>
+    <script src="{{wwwroot}}/moodle1/local/powerschool/js/filiere.js"></script>
+<hr>

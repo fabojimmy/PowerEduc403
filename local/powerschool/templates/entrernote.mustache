@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="row col-12 mt-5">
+    <form method="POST" action="{{ajout}}?id={{idaff}}&idbu={{idbu}}&notetest=test&idsa={{idsa}}&idgr={{idgr}}&idcour={{idcour}}&idsp={{idsp}}&idcy={{idcy}}&idsem={{idsem}}&idca={{idca}}&idan={{idan}}&libelcou={{libelcou}}" class="row col-12">
+        <div class="col-3">
+            <select class="form-control" name="test">
+              <option value="">Choisir un Test</option>
+              {{#test}}
+              <option value="{{id}}">{{name}}</option>
+              {{/test}}
+          </select>
+        </div>
+        <div class="col-3">
+            <select class="form-control" name="lesson">
+              <option value="">Choisir une Leçon</option>
+              {{#lesson}}
+              <option value="{{id}}">{{name}}</option>
+              {{/lesson}}
+          </select>
+        </div>
+        <div class="col-3">
+            <select class="form-control" name="normalcc">
+              <option value="">Choisir le type de note</option>
+              <option value="cc">Controle continu</option>
+              <option value="normal">Note/normal</option>
+          </select>
+        </div>
+             <input type="submit" class="btn btn-info local_annee_delete_button" value="Note générale">
+    </form>
+      {{! <div class="col-6 mt-5">
+             <label>Utilisez la moyenne générale</label>
+          <form method="POST" action="">
+            <div class="col-4">
+                <select class="form-control">
+                  <option value="">Choisir le type de note</option>
+                  <option value="cc">Controle continu</option>
+                  <option value="normal">Note/normal</option>
+              </select>
+            </div>
+             <input type="submit" class="btn btn-info local_annee_delete_button mt-3" value="Note générale">
+          </form>
+      </div>
+
+</div> }}
+<div style="margin-top:1rem">
+ <form action='{{ajout}}?id={{idaff}}&idbu={{idbu}}&idsa={{idsa}}&idcour={{idcour}}&idsp={{idsp}}&idcy={{idcy}}&idsem={{idsem}}&idca={{idca}}&idan={{idan}}&libelcou={{libelcou}}&idgr={{idgr}}' method="post">
+    <div class="mt-5">
+      <div>
+      <label> Selectionner d'abord le cours</label>
+        <select class="form-control col-3" onchange="if (this.value) location.href=this.value;">
+             <option value="">Choisir un cours</option>
+            {{#cours}}
+            <option value="{{coursid}}?idcour={{idcourse}}&idsp={{idsp}}&idcy={{idcy}}&idsem={{idsem}}&idca={{idca}}&idan={{idan}}&libelcou={{fullname}}&idbu={{idbu}}&idsa={{idsa}}&idgr={{idgr}}">{{fullname}}</option>
+            {{/cours}}
+        </select>
+       </div>
+     
+    </div>
+
+    <div class="table card mt-2 mb-2">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nom&Prenom</th>
+                <th scope="col">Controle Continue </th>
+                <th scope="col">Modifier Controle Continue </th>
+                <th scope="col">Notes ou Normal </th>
+                <th scope="col">Modifier Note</th>
+                <!--<th scope="col">Notes </th>-->
+              </tr>
+            </thead>
+            <tbody>
+            {{#etudiants}}
+              <tr>
+                    <td><label>{{firstname}}-{{lastname}}</label></td>
+                    <td><input class="form-control col-4 inputnoteuser"  type="number" name="notecc[{{userid}}]"> </td>
+                   
+                    <td><div class="d-flex justify-content-evenly"><input class="form-control col-4 inputmodi" type="text" value="{{note2}}" disabled><!--<button class="btn-info btnmodnote" ><i class="fa fa-plus"></i></button>--></div></td>
+                   
+                    <td><input class="form-control col-4 inputnoteuser"  type="number" name="noteaj[{{userid}}]"> </td>
+                   
+                    <td><div class="d-flex justify-content-evenly"><input class="form-control col-4 inputmodi" type="text" value="{{note3}}" disabled><!--<button class="btn-info btnmodnote"><i class="fa fa-plus"></i></button>--></div></td>
+                   
+                    <!--<td>
+                        <input type="button" class="btn btn-info local_annee_delete_button" value="Modifier" onclick="location.href='{{affectercours}}?id={{id}}'">
+                    </td>-->
+                </tr>
+            {{/etudiants}}
+            </tbody>
+          </table>
+   </div>
+       
+          <input type="submit" class="btn btn-info local_annee_delete_button" value="Enregistrer">
+</form>
+</div>
+    <script src="{{wwwroot}}/moodle1/local/powerschool/js/jquery.js"></script>
+    <script src="{{wwwroot}}/moodle1/local/powerschool/js/entrernotes.js"></script>
+</body>
+</html>
